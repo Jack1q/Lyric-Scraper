@@ -5,6 +5,16 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+/**
+ *  This program scrapes musixmatch.com for lyrics
+ *  and formats them line by line. It's still buggy
+ *  because I track lines by capital letters, which
+ *  do not always indicate a new line in music
+ *
+ * @author Jack Donofrio
+ *
+ */
+
 public class LyricScraper
 {
   public static void main(String[] args)
@@ -31,6 +41,7 @@ public class LyricScraper
         "https://www.musixmatch.com/lyrics/" + queryArtist + "/" + querySong
           + "/translation/spanish";
 
+    // this is just so I can see that it gets the right url
     System.out.println(url);
 
     try
@@ -62,11 +73,11 @@ public class LyricScraper
         count++;
       }
     }
-    // fallback
+
     catch (Exception ex)
     {
       System.out.print("Song \"" + rawQuerySong + "\" by " + rawQueryArtist
-        + " cannot be found");
+        + " cannot be located");
 
     }
 
